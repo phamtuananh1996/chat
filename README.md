@@ -1,1 +1,5 @@
-# chat
+# Run project
+
+```
+docker-compose up
+```
