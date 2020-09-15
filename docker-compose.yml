@@ -1,0 +1,22 @@
+version: '3'
+services:
+    server:
+        image: node:10-alpine
+        volumes:
+        - ./server:/server
+        working_dir: /server
+        ports:
+        - "3000:3000"
+        restart: unless-stopped
+        command: >
+            sh -c "npm i && npm run dev"
+    client:
+        image: node:10-alpine
+        volumes:
+        - ./client:/client
+        working_dir: /client
+        ports:
+        - "8080:8080"
+        restart: unless-stopped
+        command: >
+            sh -c "npm i && npm run serve"
