@@ -2,7 +2,7 @@
   <div id="app">
     <basic-vue-chat
       style="width: 25vw"
-      title="Chát với người lạ"
+      title="Chat with strangers"
       @newOwnMessage="sendMessage" 
       :new-message="message"
     />
@@ -38,7 +38,7 @@ export default {
     receiveMessage: function (message) {
       this.message = {
         contents: message,
-        author: 'Người lạ',
+        author: 'Strangers',
         date: moment(new Date()).format('h:mm'),
       }
     },
