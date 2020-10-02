@@ -16,9 +16,9 @@ io.on('connect', socket => {
     socket.join(clientRoom);
 
     if(io.sockets.adapter.rooms[clientRoom].length < 2) {
-        io.in(clientRoom).emit('statusRoom', 'Đang chờ người lạ ...');
+        io.in(clientRoom).emit('statusRoom', 'Waiting for a stranger ...');
     } else {
-        io.in(clientRoom).emit('statusRoom', 'Người lạ đã vào phòng');
+        io.in(clientRoom).emit('statusRoom', 'Strangers have entered the room');
     }
 
     socket.on('sendMessage', function (message) {
@@ -26,6 +26,6 @@ io.on('connect', socket => {
     })
 
     socket.on('disconnect', (reason) => {
-      socket.to(clientRoom).emit('statusRoom', 'Người lạ đã thoát. Đang chờ người tiếp theo ....');
+      socket.to(clientRoom).emit('statusRoom', 'The stranger has escaped. Waiting for the next one ....');
     });
 });
